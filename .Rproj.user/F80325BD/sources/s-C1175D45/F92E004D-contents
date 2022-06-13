@@ -1,0 +1,15 @@
+# Univariate Density Plots
+# We can smooth out the histograms to lines using a density plot. These are useful for a more abstract depiction of the distribution of each variable.
+
+# load libraries
+library(lattice)
+# load dataset
+data(iris)
+# create a panel of simpler density plots by attribute
+par(mfrow=c(1,4))
+for(i in 1:4) {
+	plot(density(iris[,i]), main=names(iris)[i])
+}
+
+#Using the same dataset from the previous example with histograms, we can see the double Gaussian distribution with petal measurements. We can also see a possible exponential (Lapacian-like) distribution for the Sepal width.
+

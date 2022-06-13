@@ -1,0 +1,12 @@
+# Univariate histograms
+# Histograms provide a bar chart of a numeric attribute split into bins with the height showing the number of instances that fall into each bin. They are useful to get an indication of the distribution of an attribute.
+
+# load the data
+data(iris)
+# create histograms for each attribute
+par(mfrow=c(1,4))
+for(i in 1:4) {
+	hist(iris[,i], main=names(iris)[i])
+}
+
+#You can see that most of the attributes show a Gaussian or multi-modal Gaussian distribution. You can see the measurements of very small flowers in the Petal width and length column.

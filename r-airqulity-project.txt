@@ -1,0 +1,39 @@
+install.packages("readxl")
+library("readxl")
+AirQ <- read_excel("AirQualityUCI-1.xlsx")
+install.packages("mlbench")
+library(mlbench)
+library(lubridate)
+# The easiest way to get lubridate is to install the whole tidyverse:
+install.packages("tidyverse")
+
+# Alternatively, install just lubridate:
+install.packages("lubridate")
+# list the structure of mydata
+str(AirQ)
+dim(AirQ)
+# print first 10 rows of mydata
+head(AirQ, n=30)
+# print first 10 rows of mydata
+tail(AirQ, n=10)
+#list the variables in mydata
+names(AirQ)
+# list the structure of mydata
+str(AirQ)
+str(AirQ1)
+
+AirQ$Time <- parse_date_time(Time,orders="ymd hms")
+#Cahange time data type
+AirQ$time <- format(as.POSIXct(AirQ$Time),format = "%H,%M,%S")
+
+#reoder columns
+AirQ[ ,c(1,2,16,3,4,5,6,7,8,9,10,11,12,13,14,15)]
+
+
+#Find missing values in each attribute
+colSums(is.na(AirQ))
+
+AirQ2 <- AirQ1[ , ! names(AirQ1) %in% c("Time", "NMHC(GT)")]  
+str(AirQ2)
+               
+colSums(is.na(AirQ))
